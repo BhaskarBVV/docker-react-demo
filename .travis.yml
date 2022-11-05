@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before-install:
+  - docker build -t imageonwweb -f Dockerfile.dev .
+
+scripts:
+  - docker run imageonweb npm run test -- --coverage
